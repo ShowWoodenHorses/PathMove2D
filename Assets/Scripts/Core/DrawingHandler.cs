@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Assets.Scripts.Core
 {
-    public class DrawingHandler : MonoBehaviour
+    public class DrawingHandler
     {
         private Transform player;
         private Camera mainCamera;

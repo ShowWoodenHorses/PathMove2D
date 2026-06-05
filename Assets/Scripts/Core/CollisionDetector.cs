@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Core
 {
-    public class CollisionDetector : MonoBehaviour
+    public class CollisionDetector
     {
         private LayerMask obstacleMask;
         private float collisionCheckRadius = 0.2f;
@@ -10,7 +10,7 @@ namespace Assets.Scripts.Core
         private Vector3 boundsCenter = Vector3.zero;
         private Bounds gameBounds;
 
-        public void Initialize(DrawLineSetupConfig config)
+        public CollisionDetector(DrawLineSetupConfig config)
         {
             obstacleMask = config.obstacleMask;
             collisionCheckRadius = config.collisionCheckRadius;

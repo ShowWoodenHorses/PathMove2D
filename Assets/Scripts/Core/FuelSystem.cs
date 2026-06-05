@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Core
 {
-    public class FuelSystem : MonoBehaviour
+    public class FuelSystem
     {
         private float maxFuel;
         private float currentFuel;
@@ -17,13 +17,13 @@ namespace Assets.Scripts.Core
         public float Currentfuel => currentFuel;
         public bool HasFuel => currentFuel > 0;
 
-        public void Initialize(DrawLineSetupConfig config, Action<float> onFuelChanged)
+        public void Initialize(DrawLineSetupConfig config)
         {
             maxFuel = config.maxFuel;
             fuelConsumptionRate = config.fuelConsumptionRate;
             fuelBar = config.fuelBar;
             currentFuel = config.maxFuel;
-            this.onFuelChanged = onFuelChanged;
+
             UpdateFuelUI();
         }
 
@@ -60,6 +60,11 @@ namespace Assets.Scripts.Core
         public float GetPossibleDistance()
         {
             return currentFuel / fuelConsumptionRate;
+        }
+
+        public void RegisterActionFuelChanged(Action<float> onFuelChanged)
+        {
+            this.onFuelChanged = onFuelChanged;
         }
 
         private void UpdateFuelUI()

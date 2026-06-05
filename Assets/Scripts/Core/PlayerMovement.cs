@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Core
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement
     {
         private Transform player;
         private FuelSystem fuelSystem;
@@ -18,11 +18,15 @@ namespace Assets.Scripts.Core
 
         public bool IsMoving => isMoving;
 
-        public void Initialize(Transform player, FuelSystem fuelSystem, LineManager lineManager,  DrawLineSetupConfig config)
+        public PlayerMovement(Transform player, FuelSystem fuelSystem, LineManager lineManager)
         {
             this.player = player;
             this.fuelSystem = fuelSystem;
             this.lineManager = lineManager;
+        }
+
+        public void Initialize(DrawLineSetupConfig config)
+        {
             moveSpeed = config.moveSpeed;
         }
 
