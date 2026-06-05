@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Configs
 {
     [CreateAssetMenu(fileName = "DrawLineSetupConfig", menuName = "ScriptableObject/DrawLineSetupConfig")]
     public class DrawLineSetupConfig : ScriptableObject

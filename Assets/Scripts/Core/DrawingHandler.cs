@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Linq;
+using Assets.Scripts.Configs;
 
 namespace Assets.Scripts.Core
 {

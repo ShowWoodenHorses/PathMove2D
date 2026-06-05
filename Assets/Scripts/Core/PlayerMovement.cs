@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Configs;
 
 namespace Assets.Scripts.Core
 {
