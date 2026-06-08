@@ -1,17 +1,25 @@
 ﻿using Assets.Scripts.Core;
 using Assets.Scripts.Configs;
 using UnityEngine;
+using Assets.Scripts.Enemies;
 
 namespace Assets.Scripts
 {
     public class Bootstrap : MonoBehaviour
     {
+        [Header("Player")]
+        [SerializeField] private Transform player;
         [SerializeField] private DrawLineSetupConfig config;
         [SerializeField] private LineManager lineManager;
         [SerializeField] private DrawLineController drawLineController;
 
-        [Space, Header("References")]
-        [SerializeField] private Transform player;
+        [Space, Header("Level")]
+        [SerializeField] private LevelConfig levelConfig;
+        [SerializeField] private LevelController levelController;
+
+        [Space, Header("Enemy")]
+        [SerializeField] private EnemyManager enemyManager;
+
 
         private Camera mainCamera;
         private FuelSystem fuelSystem;
@@ -56,6 +64,8 @@ namespace Assets.Scripts
             }
 
             drawLineController.Initialize(fuelSystem, playerMovement, inputHandler, lineManager, drawingHandler);
+
+            levelController.Initialize(levelConfig, enemyManager, player);
         }
     }
 }

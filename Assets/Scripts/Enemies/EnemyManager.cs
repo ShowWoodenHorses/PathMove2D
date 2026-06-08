@@ -6,94 +6,42 @@ namespace Assets.Scripts.Enemies
 {
     public class EnemyManager : MonoBehaviour
     {
+        private List<EnemyController> enemies = new List<EnemyController>();
 
-        [Header("References")]
-        public List<EnemyController> enemies = new List<EnemyController>();
-
-        [Header("Settings")]
-        public bool autoDetectEnemies = true;
-        public LayerMask enemyLayer;
-
-        void Start()
+        public void Initialize(Transform player, List<EnemyHolder> enemyHolders)
         {
-            if (autoDetectEnemies)
-            {
-                DetectAllEnemies();
-            }
+            ClearEnemy();
 
-            foreach (EnemyController enemy in enemies)
+            foreach (EnemyHolder enemyHolder in enemyHolders)
             {
-                if (enemy != null)
+                GameObject newEnemy = Instantiate(enemyHolder.Enemy, transform);
+                EnemyController enemyController = newEnemy.GetComponent<EnemyController>();
+
+                if (enemyController != null)
                 {
-                    enemy.OnPlayerDetected += HandlePlayerDetected;
+                    enemies.Add(enemyController);
+                    enemyController.Initialize(player, enemyHolder.Waypoints, OnHandlePlayerDetected);
                 }
+
             }
         }
 
-        void OnDestroy()
+        private void ClearEnemy()
         {
-            foreach (EnemyController enemy in enemies)
+            if (enemies.Count > 0)
             {
-                if (enemy != null)
+                foreach(EnemyController enemy in enemies)
                 {
-                    enemy.OnPlayerDetected -= HandlePlayerDetected;
+                    GameObject.Destroy(enemy.gameObject);
                 }
+
+                enemies.Clear();
             }
         }
 
-        void HandlePlayerDetected(EnemyController enemy)
+        private void OnHandlePlayerDetected(EnemyController enemy)
         {
             Debug.Log($"[EnemyManager] Игрок обнаружен врагом: {enemy.name}");
-        }
-
-        public void DetectAllEnemies()
-        {
-            enemies.Clear();
-
-            Collider2D[] hits = FindObjectsByType<Collider2D>(FindObjectsSortMode.None);
-
-            foreach (Collider2D hit in hits)
-            {
-                if (enemyLayer == (enemyLayer | (1 << hit.gameObject.layer)))
-                {
-                    EnemyController enemy = hit.GetComponent<EnemyController>();
-                    if (enemy != null && !enemies.Contains(enemy))
-                    {
-                        enemies.Add(enemy);
-                    }
-                }
-            }
-
-            Debug.Log($"[EnemyManager] Найдено врагов: {enemies.Count}");
-        }
-
-        public void AddEnemy(EnemyController enemy)
-        {
-            if (!enemies.Contains(enemy))
-            {
-                enemies.Add(enemy);
-                enemy.OnPlayerDetected += HandlePlayerDetected;
-            }
-        }
-
-        public void RemoveEnemy(EnemyController enemy)
-        {
-            if (enemies.Contains(enemy))
-            {
-                enemies.Remove(enemy);
-                enemy.OnPlayerDetected -= HandlePlayerDetected;
-            }
-        }
-
-        public void ResetAllEnemies()
-        {
-            foreach (EnemyController enemy in enemies)
-            {
-                if (enemy != null)
-                {
-                    enemy.ResetDetection();
-                }
-            }
         }
     }
 }

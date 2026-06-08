@@ -20,7 +20,7 @@ namespace Assets.Scripts.Enemy
         private Material dynamicMaterial;
         private float lastUpdateTime;
 
-        void Awake()
+        public void Initialize(EnemyController enemyRef)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer == null)
@@ -28,10 +28,7 @@ namespace Assets.Scripts.Enemy
                 spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
             }
             spriteRenderer.sortingOrder = -1;
-        }
 
-        public void Initialize(EnemyController enemyRef)
-        {
             enemy = enemyRef;
             currentRadius = enemy.GetDetectionRadius();
             currentAngle = enemy.GetDetectionAngle();

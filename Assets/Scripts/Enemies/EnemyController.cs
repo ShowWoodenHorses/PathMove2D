@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 namespace Assets.Scripts.Enemy
 {
@@ -14,44 +15,40 @@ namespace Assets.Scripts.Enemy
         [Header("Detection Settings")]
         public float detectionRadius = 5f;
         public float detectionAngle = 360f;
+        public GameObject detectionVisualPrefab;
         public LayerMask playerLayer;
         public LayerMask obstacleMask;
         public bool requireLineOfSight = true;
 
         [Header("Visual Settings")]
-        public GameObject detectionVisualPrefab;
         public Color detectionGizmoColor = new Color(1f, 0f, 0f, 0.3f);
         public bool showGizmos = true;
 
         private int currentWaypointIndex = 0;
         private Transform player;
         private bool hasDetectedPlayer = false;
+        private bool canMovePatrol = true;
         private DetectionVisual detectionVisual;
 
-        public System.Action<EnemyController> OnPlayerDetected;
+        private Action<EnemyController> onPlayerDetected;
 
-        void Start()
+        public void Initialize(Transform player, List<Transform> points, Action<EnemyController> onPlayerDetected)
         {
+            this.player = player;
+            this.waypoints = points;
+            this.onPlayerDetected = onPlayerDetected;
+
             if (waypoints.Count == 0)
             {
-                Debug.LogWarning($"Enemy {name} не имеет waypoints!");
-                enabled = false;
-                return;
+                canMovePatrol = false;
             }
-
-            FindPlayer();
-            InitializeDetectionVisual();
-            transform.position = waypoints[0].position;
-            currentWaypointIndex = 1;
-        }
-
-        void FindPlayer()
-        {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer);
-            if (hits.Length > 0)
+            else
             {
-                player = hits[0].transform;
+                transform.position = waypoints[0].position;
+                currentWaypointIndex = 1;
             }
+
+            InitializeDetectionVisual();
         }
 
         void InitializeDetectionVisual()
@@ -69,7 +66,10 @@ namespace Assets.Scripts.Enemy
 
         void Update()
         {
-            PatrolMovement();
+            if (canMovePatrol)
+            {
+                PatrolMovement();
+            }
 
             if (player != null && !hasDetectedPlayer)
             {
@@ -129,7 +129,7 @@ namespace Assets.Scripts.Enemy
             }
 
             hasDetectedPlayer = true;
-            OnPlayerDetected?.Invoke(this);
+            onPlayerDetected?.Invoke(this);
             Debug.Log($"[Enemy] {name} обнаружил игрока!");
         }
 
