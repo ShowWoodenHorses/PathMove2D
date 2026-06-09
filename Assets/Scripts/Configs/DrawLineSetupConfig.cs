@@ -29,6 +29,8 @@ namespace Assets.Scripts.Configs
 
         [Header("Movement Settings")]
         public float moveSpeed = 5f;
+        public bool rotateTowardsMovement = true;
+        public float rotationSpeed = 360f;
 
         [Header("Drawing Settings")]
         public float startRadius = 0.5f;

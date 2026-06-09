@@ -18,14 +18,16 @@ MonoBehaviour:
   lineWidth: 0.1
   availableFuelColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableFuelColor: {r: 1, g: 0, b: 0, a: 1}
-  maxFuel: 10
+  maxFuel: 100
   fuelConsumptionRate: 1
   fuelBar: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   collisionCheckRadius: 0.2
-  boundsSize: {x: 20, y: 12}
+  boundsSize: {x: 50, y: 30}
   boundsCenter: {x: 0, y: 0, z: 0}
   moveSpeed: 5
-  startRadius: 0.5
+  rotateTowardsMovement: 1
+  rotationSpeed: 360
+  startRadius: 2

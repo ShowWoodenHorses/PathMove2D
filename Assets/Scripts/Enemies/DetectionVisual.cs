@@ -27,7 +27,6 @@ namespace Assets.Scripts.Enemy
             {
                 spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
             }
-            spriteRenderer.sortingOrder = -1;
 
             enemy = enemyRef;
             currentRadius = enemy.GetDetectionRadius();

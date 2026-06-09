@@ -11,6 +11,8 @@ namespace Assets.Scripts.Enemy
         public float moveSpeed = 3f;
         public float waypointReachDistance = 0.1f;
         public bool loopPath = true;
+        public bool rotateTowardsMovement = true;
+        public float rotationSpeed = 360f;
 
         [Header("Detection Settings")]
         public float detectionRadius = 5f;
@@ -29,6 +31,7 @@ namespace Assets.Scripts.Enemy
         private bool hasDetectedPlayer = false;
         private bool canMovePatrol = true;
         private DetectionVisual detectionVisual;
+        private Vector3 lastPosition;
 
         private Action<EnemyController> onPlayerDetected;
 
@@ -46,6 +49,7 @@ namespace Assets.Scripts.Enemy
             {
                 transform.position = waypoints[0].position;
                 currentWaypointIndex = 1;
+                lastPosition = transform.position;
             }
 
             InitializeDetectionVisual();
@@ -82,11 +86,30 @@ namespace Assets.Scripts.Enemy
             if (waypoints.Count == 0) return;
 
             Vector3 targetPosition = waypoints[currentWaypointIndex].position;
+            Vector3 previousPosition = transform.position;
+
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            if (rotateTowardsMovement)
+            {
+                RotateTowardsMovement(previousPosition);
+            }
 
             if (Vector3.Distance(transform.position, targetPosition) <= waypointReachDistance)
             {
                 UpdateNextWaypoint();
+            }
+        }
+
+        void RotateTowardsMovement(Vector3 previousPosition)
+        {
+            Vector3 movementDirection = transform.position - previousPosition;
+
+            if (movementDirection.sqrMagnitude > 0.001f)
+            {
+                float targetAngle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
 
@@ -191,6 +214,5 @@ namespace Assets.Scripts.Enemy
             float angleRad = angleDegrees * Mathf.Deg2Rad;
             return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad), 0);
         }
-
     }
 }

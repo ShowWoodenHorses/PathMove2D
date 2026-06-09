@@ -12,6 +12,9 @@ namespace Assets.Scripts.Core
         private LineManager lineManager;
 
         private float moveSpeed;
+        private bool rotateTowardsMovement = true;
+        private float rotationSpeed = 360f;
+        private Vector3 lastPosition;
 
         private bool isMoving = false;
         private int currentPointIndex = 0;
@@ -29,6 +32,8 @@ namespace Assets.Scripts.Core
         public void Initialize(DrawLineSetupConfig config)
         {
             moveSpeed = config.moveSpeed;
+            rotateTowardsMovement = config.rotateTowardsMovement;
+            rotationSpeed = config.rotationSpeed;
         }
 
         public void TryStartMoving()
@@ -102,6 +107,7 @@ namespace Assets.Scripts.Core
             isMoving = true;
             currentPath = path;
             currentPointIndex = 1;
+            lastPosition = player.position;
 
             lineManager.SetPathForMovement(path);
             MoveToNextPoint();
@@ -123,7 +129,16 @@ namespace Assets.Scripts.Core
             {
                 float duration = segmentDistance / moveSpeed;
 
-                player.DOMove(targetPoint, duration).SetEase(Ease.Linear).OnComplete(() =>
+                // Сохраняем начальную позицию перед движением
+                Vector3 startPosition = player.position;
+
+                player.DOMove(targetPoint, duration).SetEase(Ease.Linear).OnUpdate(() =>
+                {
+                    if (rotateTowardsMovement)
+                    {
+                        RotateTowardsMovement(startPosition, targetPoint);
+                    }
+                }).OnComplete(() =>
                 {
                     fuelSystem.ConsumeFuelForDistance(segmentDistance);
                     currentPointIndex++;
@@ -136,11 +151,31 @@ namespace Assets.Scripts.Core
                 Vector3 partialTarget = Vector3.MoveTowards(player.position, targetPoint, possibleDistance);
                 float duration = possibleDistance / moveSpeed;
 
-                player.DOMove(partialTarget, duration).OnComplete(() =>
+                Vector3 startPosition = player.position;
+
+                player.DOMove(partialTarget, duration).OnUpdate(() =>
+                {
+                    if (rotateTowardsMovement)
+                    {
+                        RotateTowardsMovement(startPosition, partialTarget);
+                    }
+                }).OnComplete(() =>
                 {
                     Debug.Log("Топливо закончилось!");
                     CompleteMovement();
                 });
+            }
+        }
+
+        private void RotateTowardsMovement(Vector3 startPosition, Vector3 targetPosition)
+        {
+            Vector3 movementDirection = targetPosition - startPosition;
+
+            if (movementDirection.sqrMagnitude > 0.001f)
+            {
+                float targetAngle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+                player.rotation = Quaternion.RotateTowards(player.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
 
