@@ -5,10 +5,6 @@ namespace Assets.Scripts.Core
 {
     public class DrawLineController : MonoBehaviour
     {
-        [Space, Header("UI Buttons")]
-        public Button startButton;
-        public Button resetButton;
-
         private LineManager lineManager;
         private DrawingHandler drawingHandler;
         private FuelSystem fuelSystem;
@@ -24,14 +20,24 @@ namespace Assets.Scripts.Core
             this.drawingHandler = drawingHandler;
 
             fuelSystem.RegisterActionFuelChanged(OnFuelChanged);
-
-            startButton.onClick.AddListener(() => playerMovement.TryStartMoving());
-            resetButton.onClick.AddListener(ResetLine);
         }
 
         void Update()
         {
             inputHandler.Update();
+        }
+
+        public void StartMoving()
+        {
+            playerMovement.TryStartMoving();
+        }
+
+        public void ResetLine()
+        {
+            playerMovement.StopMovement();
+            drawingHandler.CancelDrawing();
+            lineManager.ResetLine();
+            Debug.Log("Линия сброшена");
         }
 
         private void OnFuelChanged(float currentFuel)
@@ -43,12 +49,9 @@ namespace Assets.Scripts.Core
             }
         }
 
-        public void ResetLine()
+        private void OnDestroy()
         {
-            playerMovement.StopMovement();
-            drawingHandler.CancelDrawing();
-            lineManager.ResetLine();
-            Debug.Log("Линия сброшена");
+            fuelSystem.UnregisterActionFuelChanged(OnFuelChanged);
         }
     }
 }

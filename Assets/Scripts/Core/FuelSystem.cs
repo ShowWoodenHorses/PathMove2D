@@ -65,7 +65,11 @@ namespace Assets.Scripts.Core
 
         public void RegisterActionFuelChanged(Action<float> onFuelChanged)
         {
-            this.onFuelChanged = onFuelChanged;
+            this.onFuelChanged += onFuelChanged;
+        }
+        public void UnregisterActionFuelChanged(Action<float> onFuelChanged)
+        {
+            this.onFuelChanged -= onFuelChanged;
         }
 
         private void UpdateFuelUI()

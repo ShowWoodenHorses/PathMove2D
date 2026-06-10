@@ -2,6 +2,7 @@
 using Assets.Scripts.Configs;
 using UnityEngine;
 using Assets.Scripts.Enemies;
+using Assets.Scripts.UI;
 
 namespace Assets.Scripts
 {
@@ -19,6 +20,9 @@ namespace Assets.Scripts
 
         [Space, Header("Enemy")]
         [SerializeField] private EnemyManager enemyManager;
+
+        [Space, Header("UI")]
+        [SerializeField] private CommonPanelView commonPanelView;
 
 
         private Camera mainCamera;
@@ -65,7 +69,8 @@ namespace Assets.Scripts
 
             drawLineController.Initialize(fuelSystem, playerMovement, inputHandler, lineManager, drawingHandler);
 
-            levelController.Initialize(levelConfig, enemyManager, player);
+            levelController.Initialize(levelConfig, enemyManager,fuelSystem, player);
+            commonPanelView.Initialize(config, drawLineController, levelController, fuelSystem);
         }
     }
 }
