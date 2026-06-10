@@ -581,7 +581,7 @@ MonoBehaviour:
   levelConfig: {fileID: 11400000, guid: c17d2a22bd2d0aa4abbac5742c169fe5, type: 2}
   levelController: {fileID: 181519519}
   enemyManager: {fileID: 1426031088}
-  commonPanelView: {fileID: 0}
+  commonPanelView: {fileID: 2101388363}
 --- !u!4 &349299958
 Transform:
   m_ObjectHideFlags: 0

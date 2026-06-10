@@ -70,7 +70,7 @@ namespace Assets.Scripts
             drawLineController.Initialize(fuelSystem, playerMovement, inputHandler, lineManager, drawingHandler);
 
             levelController.Initialize(levelConfig, enemyManager,fuelSystem, player);
-            commonPanelView.Initialize(config, drawLineController, levelController, fuelSystem);
+            commonPanelView.Initialize(drawLineController, levelController, fuelSystem);
         }
     }
 }

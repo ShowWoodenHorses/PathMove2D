@@ -20,6 +20,7 @@ namespace Assets.Scripts
         private bool hasCargo;
 
         private Action onPickUpCargo;
+        private Action<LevelSetup> onStartLevel;
         private Action onFinishedLevel;
 
         public void Initialize(LevelConfig levelsConfig, EnemyManager enemyManager, FuelSystem fuelSystem, Transform player)
@@ -45,9 +46,10 @@ namespace Assets.Scripts
             CreateLevelPrefab();
         }
 
-        public void RegisterActionLevelController(Action onPickUpCargo, Action onFinishedLevel)
+        public void RegisterActionLevelController(Action onPickUpCargo, Action<LevelSetup> onStartLevel, Action onFinishedLevel)
         {
             this.onPickUpCargo = onPickUpCargo;
+            this.onStartLevel = onStartLevel;
             this.onFinishedLevel = onFinishedLevel;
         }
 
@@ -81,8 +83,9 @@ namespace Assets.Scripts
                 Destroy(levelInstance.gameObject);
                 levelInstance = null;
             }
+            LevelSetup levelSetup = levelsConfig.Levels[currentLevelIndex];
 
-            levelInstance = Instantiate(levelsConfig.Levels[currentLevelIndex].gameObject, transform);
+            levelInstance = Instantiate(levelSetup.LevelHolder.gameObject, transform);
             levelInstance.transform.position = Vector3.zero;
 
             levelHolder = levelInstance.GetComponent<LevelHolder>();
@@ -90,6 +93,8 @@ namespace Assets.Scripts
             {
                 levelHolder.Initialize(player, OnPickUpCargo, OnPickUpFuel, OnFinishedLevel);
                 enemyManager.Initialize(player, levelHolder.Enemies);
+                fuelSystem.SetMaxFuel(levelSetup.MaxFuel);
+                onStartLevel?.Invoke(levelSetup);
             }
 
         }

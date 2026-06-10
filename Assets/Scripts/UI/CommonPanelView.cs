@@ -25,14 +25,12 @@ namespace Assets.Scripts.UI
         [SerializeField] private Button startButton;
         [SerializeField] private Button resetButton;
 
-        private DrawLineSetupConfig config;
         private DrawLineController drawLineController;
         private LevelController levelController;
         private FuelSystem fuelSystem;
 
-        public void Initialize(DrawLineSetupConfig config, DrawLineController drawLineController, LevelController levelController, FuelSystem fuelSystem)
+        public void Initialize(DrawLineController drawLineController, LevelController levelController, FuelSystem fuelSystem)
         {
-            this.config = config;
             this.drawLineController = drawLineController;
             this.levelController = levelController;
             this.fuelSystem = fuelSystem;
@@ -40,22 +38,11 @@ namespace Assets.Scripts.UI
             winPanel.SetActive(false);
             losePanel.SetActive(false);
             pausePanel.SetActive(false);
-            fuelPanel.SetActive(false);
 
             this.fuelSystem.RegisterActionFuelChanged(this.OnFuelChanged);
-            this.levelController.RegisterActionLevelController(OnPickUpCargo, OnFinishedLevel);
+            this.levelController.RegisterActionLevelController(OnPickUpCargo, OnStartLevel, OnFinishedLevel);
             startButton.onClick.AddListener(OnStartButton);
             resetButton.onClick.AddListener(OnResetButton);
-
-            SetFuelView();
-        }
-
-        private void SetFuelView()
-        {
-            fuelSlider.maxValue = config.maxFuel;
-            fuelSlider.value = config.maxFuel;
-
-            fuelPanel.SetActive(true);
         }
 
         private void OnStartButton()
@@ -69,7 +56,18 @@ namespace Assets.Scripts.UI
 
         private void OnFuelChanged(float currentFuel)
         {
+            if (currentFuel > fuelSlider.maxValue)
+            {
+                fuelSlider.maxValue = currentFuel;
+            }
+
             fuelSlider.value = currentFuel;
+        }
+
+        private void OnStartLevel(LevelSetup levelSetup)
+        {
+            fuelSlider.maxValue = levelSetup.MaxFuel;
+            fuelSlider.value = levelSetup.MaxFuel;
         }
 
         private void OnFinishedLevel()

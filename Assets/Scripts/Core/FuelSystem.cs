@@ -2,15 +2,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Configs;
+using static UnityEngine.Rendering.STP;
 
 namespace Assets.Scripts.Core
 {
     public class FuelSystem
     {
-        private float maxFuel;
         private float currentFuel;
         private float fuelConsumptionRate;
-        private Image fuelBar;
         private Action<float> onFuelChanged;
 
         public float MaxFuelDistance => currentFuel / fuelConsumptionRate;
@@ -20,12 +19,12 @@ namespace Assets.Scripts.Core
 
         public void Initialize(DrawLineSetupConfig config)
         {
-            maxFuel = config.maxFuel;
             fuelConsumptionRate = config.fuelConsumptionRate;
-            fuelBar = config.fuelBar;
-            currentFuel = config.maxFuel;
+        }
 
-            UpdateFuelUI();
+        public void SetMaxFuel(float maxFuel)
+        {
+            currentFuel = maxFuel;
         }
 
         public float GetRequiredFuelForDistance(float distance)
@@ -44,7 +43,6 @@ namespace Assets.Scripts.Core
             if (currentFuel >= required)
             {
                 currentFuel -= required;
-                UpdateFuelUI();
                 onFuelChanged?.Invoke(currentFuel);
                 return true;
             }
@@ -53,8 +51,7 @@ namespace Assets.Scripts.Core
 
         public void AddFuel(float amount)
         {
-            currentFuel = Mathf.Min(currentFuel + amount, maxFuel);
-            UpdateFuelUI();
+            currentFuel += amount;
             onFuelChanged?.Invoke(currentFuel);
         }
 
@@ -70,12 +67,6 @@ namespace Assets.Scripts.Core
         public void UnregisterActionFuelChanged(Action<float> onFuelChanged)
         {
             this.onFuelChanged -= onFuelChanged;
-        }
-
-        private void UpdateFuelUI()
-        {
-            if (fuelBar != null)
-                fuelBar.fillAmount = currentFuel / maxFuel;
         }
     }
 }
