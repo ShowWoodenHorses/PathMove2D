@@ -17,7 +17,7 @@ namespace Assets.Scripts.Levels
         }
         protected override void DetectPlayer()
         {
-            if (Vector3.Distance(transform.position, player.position) < 1f)
+            if (Vector3.Distance(transform.position, player.position) < 3f)
             {
                 currentTime -= Time.deltaTime;
                 if (currentTime <= 0f && !isFinishSendAction)

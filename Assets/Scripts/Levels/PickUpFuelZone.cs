@@ -15,7 +15,7 @@ namespace Assets.Scripts.Levels
         }
         protected override void DetectPlayer()
         {
-            if (Vector3.Distance(transform.position, player.position) < 1f)
+            if (Vector3.Distance(transform.position, player.position) < 3f)
             {
                 if (!isFinishSendAction)
                 {

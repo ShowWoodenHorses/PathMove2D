@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Configs.LevelConfig
   Levels:
-  - MaxFuel: 10
+  - MaxFuel: 100
     LevelHolder: {fileID: 4116268585630392179, guid: 22a9a4118a91c5e4a8cd9d81e0f8f919, type: 3}

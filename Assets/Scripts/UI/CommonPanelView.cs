@@ -9,13 +9,13 @@ namespace Assets.Scripts.UI
     public class CommonPanelView : MonoBehaviour
     {
         [Space, Header("Win Panel")]
-        [SerializeField] private GameObject winPanel;
+        [SerializeField] private WinPanelView winPanelView;
 
         [Space, Header("Lose Panel")]
         [SerializeField] private GameObject losePanel;
 
         [Space, Header("Pause Panel")]
-        [SerializeField] private GameObject pausePanel;
+        [SerializeField] private PausePanelView pausePanelView;
 
         [Space, Header("Fuel Panel")]
         [SerializeField] private GameObject fuelPanel;
@@ -24,6 +24,7 @@ namespace Assets.Scripts.UI
         [Space, Header("Buttons")]
         [SerializeField] private Button startButton;
         [SerializeField] private Button resetButton;
+        [SerializeField] private Button pauseButton;
 
         private DrawLineController drawLineController;
         private LevelController levelController;
@@ -35,14 +36,23 @@ namespace Assets.Scripts.UI
             this.levelController = levelController;
             this.fuelSystem = fuelSystem;
 
-            winPanel.SetActive(false);
-            losePanel.SetActive(false);
-            pausePanel.SetActive(false);
+            pausePanelView.Initialize(this.levelController, OnClosePausePanel);
+            winPanelView.Initialize(this.levelController);
 
             this.fuelSystem.RegisterActionFuelChanged(this.OnFuelChanged);
             this.levelController.RegisterActionLevelController(OnPickUpCargo, OnStartLevel, OnFinishedLevel);
             startButton.onClick.AddListener(OnStartButton);
             resetButton.onClick.AddListener(OnResetButton);
+            pauseButton.onClick.AddListener(OnPauseButton);
+
+            Setup();
+        }
+
+        private void Setup()
+        {
+            winPanelView.Close();
+            losePanel.SetActive(false);
+            pausePanelView.Close();
         }
 
         private void OnStartButton()
@@ -52,6 +62,11 @@ namespace Assets.Scripts.UI
         private void OnResetButton()
         {
             drawLineController.ResetLine();
+        }
+        private void OnPauseButton()
+        {
+            pauseButton.gameObject.SetActive(false);
+            pausePanelView.Open();
         }
 
         private void OnFuelChanged(float currentFuel)
@@ -66,17 +81,23 @@ namespace Assets.Scripts.UI
 
         private void OnStartLevel(LevelSetup levelSetup)
         {
+            Setup();
             fuelSlider.maxValue = levelSetup.MaxFuel;
             fuelSlider.value = levelSetup.MaxFuel;
         }
 
         private void OnFinishedLevel()
         {
-            winPanel.SetActive(true);
+            winPanelView.Open();
         }
         private void OnPickUpCargo()
         {
 
+        }
+
+        private void OnClosePausePanel()
+        {
+            pauseButton.gameObject.SetActive(true);
         }
 
         private void OnDestroy()
