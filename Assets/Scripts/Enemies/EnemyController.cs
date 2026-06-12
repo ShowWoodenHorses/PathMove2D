@@ -86,13 +86,14 @@ namespace Assets.Scripts.Enemy
             if (waypoints.Count == 0) return;
 
             Vector3 targetPosition = waypoints[currentWaypointIndex].position;
-            Vector3 previousPosition = transform.position;
 
+            // Движение
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
+            // Поворот на основе направления к цели, а не разницы позиций
             if (rotateTowardsMovement)
             {
-                RotateTowardsMovement(previousPosition);
+                RotateTowardsTarget(targetPosition);
             }
 
             if (Vector3.Distance(transform.position, targetPosition) <= waypointReachDistance)
@@ -101,16 +102,23 @@ namespace Assets.Scripts.Enemy
             }
         }
 
-        void RotateTowardsMovement(Vector3 previousPosition)
+        void RotateTowardsTarget(Vector3 targetPosition)
         {
-            Vector3 movementDirection = transform.position - previousPosition;
+            Vector3 directionToTarget = (targetPosition - transform.position).normalized;
 
-            if (movementDirection.sqrMagnitude > 0.001f)
+            if (directionToTarget.sqrMagnitude > 0.001f)
             {
-                float targetAngle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
+                float targetAngle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
 
-                Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
+                // Для мгновенного поворота:
+                //transform.rotation = Quaternion.Euler(0, 0, targetAngle);
+
+                // Или для плавного (если очень нужно):
+                 float currentAngle = transform.eulerAngles.z;
+                float angleDelta = Mathf.DeltaAngle(currentAngle, targetAngle);
+                float maxDelta = rotationSpeed * Time.deltaTime;
+                float newAngle = currentAngle + Mathf.Clamp(angleDelta, -maxDelta, maxDelta);
+                transform.rotation = Quaternion.Euler(0, 0, newAngle);
             }
         }
 

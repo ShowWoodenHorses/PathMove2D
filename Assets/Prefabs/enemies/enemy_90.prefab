@@ -219,7 +219,7 @@ MonoBehaviour:
   waypointReachDistance: 0.1
   loopPath: 1
   rotateTowardsMovement: 1
-  rotationSpeed: 360
+  rotationSpeed: 180
   detectionRadius: 5
   detectionAngle: 90
   detectionVisualPrefab: {fileID: 5146406124223717944}
