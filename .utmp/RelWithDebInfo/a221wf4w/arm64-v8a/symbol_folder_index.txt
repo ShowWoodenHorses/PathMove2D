@@ -1,0 +1,1 @@
+C:\Users\Vladimir\Unity\Projects\pathMove2D\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\a221wf4w\obj\arm64-v8a
