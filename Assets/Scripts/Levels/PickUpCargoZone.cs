@@ -24,6 +24,7 @@ namespace Assets.Scripts.Levels
                 {
                     isFinishSendAction = true;
                     onFinished?.Invoke();
+                    Destroy(gameObject);
                 }
 
             }

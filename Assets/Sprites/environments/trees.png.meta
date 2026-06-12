@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 45296fe2f176df841a1451c890004b08
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2175781888988954368
+    second: threes_0
+  - first:
+      213: 7348844210639672091
+    second: threes_1
+  - first:
+      213: 3145974439784974827
+    second: threes_2
+  - first:
+      213: 5317190843260981525
+    second: threes_3
+  - first:
+      213: 6119115743964730173
+    second: threes_4
+  - first:
+      213: 9088369157812669718
+    second: threes_5
+  - first:
+      213: -764017573827095581
+    second: threes_6
+  - first:
+      213: -2882087397866060077
+    second: threes_7
+  - first:
+      213: 760161706303381579
+    second: threes_8
+  - first:
+      213: -4826277016278304028
+    second: threes_9
+  - first:
+      213: -156023371657782996
+    second: threes_10
+  - first:
+      213: -7904324072015645682
+    second: threes_11
+  - first:
+      213: -2747490310856431315
+    second: threes_12
+  - first:
+      213: 7737150662603406439
+    second: threes_13
+  - first:
+      213: 5559531049627531642
+    second: threes_14
+  - first:
+      213: 6139514692657202570
+    second: threes_15
+  - first:
+      213: 2772538395154424978
+    second: threes_16
+  - first:
+      213: -9095480652421015799
+    second: threes_17
+  - first:
+      213: -1362071468584904425
+    second: threes_18
+  - first:
+      213: 8438791833448058448
+    second: threes_19
+  - first:
+      213: 9043257254400183653
+    second: threes_20
+  - first:
+      213: 1861291359616258571
+    second: threes_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: threes_0
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1520
+        width: 342
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001c51656e11ec1e0800000000000000
+      internalID: -2175781888988954368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_1
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 1549
+        width: 245
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b131ddcafd65cf560800000000000000
+      internalID: 7348844210639672091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_2
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1587
+        width: 168
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be987dbb51fb8ab20800000000000000
+      internalID: 3145974439784974827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_3
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 1550
+        width: 287
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511d78776e47ac940800000000000000
+      internalID: 5317190843260981525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_4
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 1296
+        width: 211
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33948249577be450800000000000000
+      internalID: 6119115743964730173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_5
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1314
+        width: 102
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d4a07c89f502e70800000000000000
+      internalID: 9088369157812669718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_6
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 1325
+        width: 102
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e351e5801aa565f0800000000000000
+      internalID: -764017573827095581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_7
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1312
+        width: 178
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6409618c4c008d0800000000000000
+      internalID: -2882087397866060077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_8
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1068
+        width: 215
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40611c5b03ac8a00800000000000000
+      internalID: 760161706303381579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_9
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1106
+        width: 125
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea7919df9e950db0800000000000000
+      internalID: -4826277016278304028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_10
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 1082
+        width: 167
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c29dda3f191b5ddf0800000000000000
+      internalID: -156023371657782996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_11
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 1079
+        width: 185
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0430f9a2233e4290800000000000000
+      internalID: -7904324072015645682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_12
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 929
+        width: 91
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29239d7e14fed9d0800000000000000
+      internalID: -2747490310856431315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_13
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 925
+        width: 102
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c7722d881ef5b60800000000000000
+      internalID: 7737150662603406439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_14
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 914
+        width: 150
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a79bdc2b80c672d40800000000000000
+      internalID: 5559531049627531642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_15
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 913
+        width: 127
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85cf1d9510f33550800000000000000
+      internalID: 6139514692657202570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_16
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 667
+        width: 223
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 294af491bf80a7620800000000000000
+      internalID: 2772538395154424978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_17
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 673
+        width: 211
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907d10b598c56c180800000000000000
+      internalID: -9095480652421015799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_18
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 679
+        width: 212
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7195d444733f81de0800000000000000
+      internalID: -1362071468584904425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_19
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 415
+        width: 304
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e832e367c9c1570800000000000000
+      internalID: 8438791833448058448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_20
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 396
+        width: 270
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d4ff44f8a108d70800000000000000
+      internalID: 9043257254400183653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: threes_21
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 395
+        width: 258
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b025e6941a2a4d910800000000000000
+      internalID: 1861291359616258571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      threes_0: -2175781888988954368
+      threes_1: 7348844210639672091
+      threes_10: -156023371657782996
+      threes_11: -7904324072015645682
+      threes_12: -2747490310856431315
+      threes_13: 7737150662603406439
+      threes_14: 5559531049627531642
+      threes_15: 6139514692657202570
+      threes_16: 2772538395154424978
+      threes_17: -9095480652421015799
+      threes_18: -1362071468584904425
+      threes_19: 8438791833448058448
+      threes_2: 3145974439784974827
+      threes_20: 9043257254400183653
+      threes_21: 1861291359616258571
+      threes_3: 5317190843260981525
+      threes_4: 6119115743964730173
+      threes_5: 9088369157812669718
+      threes_6: -764017573827095581
+      threes_7: -2882087397866060077
+      threes_8: 760161706303381579
+      threes_9: -4826277016278304028
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

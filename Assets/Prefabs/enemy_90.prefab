@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 116093224186201277}
   - component: {fileID: 6585966025729870408}
   m_Layer: 0
-  m_Name: enemy
+  m_Name: enemy_90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5ba407ab499d2aa4fa1757a8b4c3832d, type: 3}
+  m_Sprite: {fileID: 7553053229717567860, guid: 7de592c793fbcd34bba3b899f5b5dd6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
   loopPath: 1
   rotateTowardsMovement: 1
   rotationSpeed: 360
-  detectionRadius: 6
-  detectionAngle: 45
+  detectionRadius: 5
+  detectionAngle: 90
   detectionVisualPrefab: {fileID: 5146406124223717944}
   playerLayer:
     serializedVersion: 2
